@@ -18,16 +18,19 @@ public class AppConfig {
 
     @Bean
     public MemberService memberService() { // 역할
+        System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository()); // 구현
     }
 
     @Bean
     public MemberRepository memberRepository() {
+        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 
     @Bean
     public OrderService orderService() {
+        System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
